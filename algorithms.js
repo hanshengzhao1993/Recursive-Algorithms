@@ -21,6 +21,20 @@
 // countVowels('abcedfg') ->2
 
 var countVowels = function(str){
+	var count = 0;
+	var vowels = ['a','e','i','o','u'];
+
+	if(str.length > 0){
+
+		if(vowels.includes(str[0])){
+			count++;
+		}
+
+	}if (str.length > 0){
+		count = count + countVowels(str.slice(1));
+	}
+
+	return count;
 
 };
 
@@ -36,6 +50,19 @@ var countVowels = function(str){
 
 var recursiveSum = function(n){
 
+	var answer = 0;
+	var string = JSON.stringify(n);
+
+	if( string.length > 0 ) {
+
+		answer = answer + parseInt(string[0]);
+
+	} if ( string.slice(1).length > 0 ) {
+		answer = answer + recursiveSum(parseInt(string.slice(1)));
+	}
+
+	return answer;
+
 };
 
 ///////////////////////////////////////////////////////////////////////
@@ -48,6 +75,23 @@ var recursiveSum = function(n){
 // PowerOfTwo(9) -> false
 
 var isPowerOfTwo = function(n){
+
+	var answer = true;
+
+	if( n > 2 ){
+		if(n % 2 === 0) {
+			answer = answer && true;
+		}else{
+			
+		answer = answer && false;
+		}
+	}
+
+	if( n / 2 > 2 ){
+		answer = answer + isPowerOfTwo(n/2);
+	}
+
+	return answer;
 
 };
 

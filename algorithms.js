@@ -82,7 +82,7 @@ var isPowerOfTwo = function(n){
 		if(n % 2 === 0) {
 			answer = answer && true;
 		}else{
-			
+
 		answer = answer && false;
 		}
 	}
@@ -126,7 +126,14 @@ var invest = function(amount){
 //    printRangeUpDown(4, 10);
 //    console.logs: 4,5,6,7,8,9,10,9,8,7,6,5,4
 var printRangeUpDown = function(min, max){
+	if(min === max){
+		console.log(min);
+		return;
+	}
 
+	console.log(min);
+	printRangeUpDown(min+1,max);
+	console.log(min);
 };
 
 ///////////////////////////////////////////////////////////////////////
